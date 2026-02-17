@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { GraduationCap, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import PublicHeader from '@/components/PublicHeader';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -70,7 +71,9 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <>
+      <PublicHeader />
+      <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <Card className="w-full max-w-md border-border">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-2">
@@ -116,7 +119,8 @@ const Login = () => {
           </p>
         </CardContent>
       </Card>
-    </div>
+      </div>
+    </>
   );
 };
 

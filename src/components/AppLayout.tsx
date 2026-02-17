@@ -14,6 +14,7 @@ import {
   Menu,
   X,
   GraduationCap,
+  Info,
 } from 'lucide-react';
 
 const navItems = [
@@ -23,6 +24,7 @@ const navItems = [
   { path: '/my-uploads', label: 'My Uploads', icon: FolderOpen },
   { path: '/leaderboard', label: 'Leaderboard', icon: Trophy },
   { path: '/profile', label: 'Profile', icon: User },
+  { path: '/about', label: 'About', icon: Info },
 ];
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {

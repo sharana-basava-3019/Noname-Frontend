@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { GraduationCap, Loader2, Check, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import PublicHeader from '@/components/PublicHeader';
 
 const branches = ['Computer Science', 'Electronics', 'Mechanical', 'Civil', 'Electrical', 'Information Technology'];
 const years = [2020, 2021, 2022, 2023, 2024, 2025, 2026];
@@ -145,7 +146,9 @@ const Register = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4 py-8">
+    <>
+      <PublicHeader />
+      <div className="flex min-h-screen items-center justify-center bg-background px-4 py-8">
       <Card className="w-full max-w-md border-border">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-2">
@@ -262,7 +265,8 @@ const Register = () => {
           </p>
         </CardContent>
       </Card>
-    </div>
+      </div>
+    </>
   );
 };
 
