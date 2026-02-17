@@ -13,6 +13,7 @@ import { Download, Star, Calendar, User, FileText, Edit } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { getResourceById } from '@/services/resourceService';
 import type { ResourceData } from '@/services/resourceService';
+import { mockResources } from '@/data/mockData';
 
 const ResourceDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -39,11 +40,64 @@ const ResourceDetails = () => {
       if (result.success && result.data) {
         setResource(result.data);
       } else {
-        setError(result.error || 'Resource not found');
+        // Fallback to mock data if backend doesn't have the resource
+        const mockResource = mockResources.find(r => r.id === id);
+        if (mockResource) {
+          // Convert mock resource to ResourceData format
+          const mockResourceData: ResourceData = {
+            id: parseInt(id),
+            title: mockResource.title,
+            description: mockResource.description || '',
+            subject: mockResource.subject,
+            file_url: mockResource.fileUrl,
+            file_name: mockResource.fileName,
+            file_size: mockResource.fileSize,
+            file_type: mockResource.type,
+            semester: mockResource.semester.toString(),
+            year: new Date(mockResource.createdAt).getFullYear(),
+            visibility: mockResource.visibility || 'public',
+            tags: [],
+            downloads: mockResource.downloads,
+            rating: mockResource.rating,
+            user_id: parseInt(mockResource.uploadedBy?.id || '1'),
+            uploader_name: mockResource.uploadedBy?.name || 'Unknown',
+            created_at: mockResource.createdAt,
+            updated_at: mockResource.updatedAt,
+          };
+          setResource(mockResourceData);
+        } else {
+          setError(result.error || 'Resource not found');
+        }
       }
     } catch (err: any) {
       console.error('Error loading resource:', err);
-      setError(err.message || 'Failed to load resource');
+      // Try mock data as fallback
+      const mockResource = mockResources.find(r => r.id === id);
+      if (mockResource) {
+        const mockResourceData: ResourceData = {
+          id: parseInt(id),
+          title: mockResource.title,
+          description: mockResource.description || '',
+          subject: mockResource.subject,
+          file_url: mockResource.fileUrl,
+          file_name: mockResource.fileName,
+          file_size: mockResource.fileSize,
+          file_type: mockResource.type,
+          semester: mockResource.semester.toString(),
+          year: new Date(mockResource.createdAt).getFullYear(),
+          visibility: mockResource.visibility || 'public',
+          tags: [],
+          downloads: mockResource.downloads,
+          rating: mockResource.rating,
+          user_id: parseInt(mockResource.uploadedBy?.id || '1'),
+          uploader_name: mockResource.uploadedBy?.name || 'Unknown',
+          created_at: mockResource.createdAt,
+          updated_at: mockResource.updatedAt,
+        };
+        setResource(mockResourceData);
+      } else {
+        setError(err.message || 'Failed to load resource');
+      }
     } finally {
       setLoading(false);
     }
