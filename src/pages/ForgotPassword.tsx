@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { GraduationCap, Loader2, Mail, CheckCircle, ArrowLeft } from 'lucide-react';
+import { BookOpen, Loader2, Mail, CheckCircle, ArrowLeft } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const ForgotPassword = () => {
@@ -73,7 +73,7 @@ const ForgotPassword = () => {
       <Card className="w-full max-w-md border-border">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-2">
-            <GraduationCap className="h-10 w-10 text-primary" />
+            <BookOpen className="h-10 w-10 text-primary" />
           </div>
           <CardTitle className="text-2xl font-bold">Forgot Password?</CardTitle>
           <CardDescription>

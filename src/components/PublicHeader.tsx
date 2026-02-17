@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { GraduationCap } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 
 const PublicHeader = () => {
   return (
@@ -8,7 +8,7 @@ const PublicHeader = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2 font-semibold hover:opacity-80 transition-opacity">
-            <GraduationCap className="h-6 w-6 text-primary" />
+            <BookOpen className="h-6 w-6 text-primary" />
             <span className="hidden sm:inline text-lg font-bold text-foreground">CampusShare</span>
           </Link>
           

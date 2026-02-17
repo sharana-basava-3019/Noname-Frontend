@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { GraduationCap, Loader2, Check, X } from 'lucide-react';
+import { BookOpen, Loader2, Check, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import PublicHeader from '@/components/PublicHeader';
 
@@ -152,7 +152,7 @@ const Register = () => {
       <Card className="w-full max-w-md border-border">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-2">
-            <GraduationCap className="h-10 w-10 text-primary" />
+            <BookOpen className="h-10 w-10 text-primary" />
           </div>
           <CardTitle className="text-2xl font-bold">Create Account</CardTitle>
           <CardDescription>Join CampusShare to share and discover resources</CardDescription>

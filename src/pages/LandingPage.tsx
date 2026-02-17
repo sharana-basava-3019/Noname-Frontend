@@ -529,9 +529,9 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">About EduShare</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">About Campus Share</h2>
               <p className="text-lg text-gray-600 mb-4">
-                EduShare is a student-driven platform designed to democratize access to quality educational
+                Campus Share is a student-driven platform designed to democratize access to quality educational
                 resources. We believe that knowledge should be freely shared among students to foster a
                 collaborative learning environment.
               </p>
@@ -665,7 +665,7 @@ export default function LandingPage() {
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <BookOpen className="h-8 w-8 text-primary" />
-                <span className="font-bold text-xl text-white">EduShare</span>
+                <span className="font-bold text-xl text-white">Campus Share</span>
               </div>
               <p className="text-sm text-gray-400">
                 Empowering students through collaborative learning and resource sharing.
@@ -752,7 +752,7 @@ export default function LandingPage() {
                   <Github className="h-5 w-5" />
                 </a>
                 <a
-                  href="mailto:support@edushare.com"
+                  href="mailto:support@campusshare.com"
                   className="p-2 bg-gray-800 rounded-full hover:bg-primary transition-colors"
                   aria-label="Email"
                 >
@@ -763,7 +763,7 @@ export default function LandingPage() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-            <p>&copy; {new Date().getFullYear()} EduShare. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Campus Share. All rights reserved.</p>
           </div>
         </div>
       </footer>

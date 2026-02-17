@@ -13,7 +13,7 @@ import {
   LogOut,
   Menu,
   X,
-  GraduationCap,
+  BookOpen,
   Info,
 } from 'lucide-react';
 
@@ -43,7 +43,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
       {/* Desktop sidebar */}
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-border bg-card lg:flex">
         <div className="flex h-16 items-center gap-2 border-b border-border px-6">
-          <GraduationCap className="h-7 w-7 text-primary" />
+          <BookOpen className="h-7 w-7 text-primary" />
           <span className="text-lg font-bold text-foreground">CampusShare</span>
         </div>
         <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
@@ -88,7 +88,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
       {/* Mobile header */}
       <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-border bg-card px-4 lg:hidden">
         <div className="flex items-center gap-2">
-          <GraduationCap className="h-6 w-6 text-primary" />
+          <BookOpen className="h-6 w-6 text-primary" />
           <span className="font-bold text-foreground">CampusShare</span>
         </div>
         <div className="flex items-center gap-2">

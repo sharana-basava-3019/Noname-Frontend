@@ -94,6 +94,9 @@ apiClient.interceptors.request.use(
     const token = localStorage.getItem('auth_token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
+      console.log('Auth token added to request:', config.method?.toUpperCase(), config.url);
+    } else {
+      console.warn('No auth token found for request:', config.method?.toUpperCase(), config.url);
     }
     return config;
   },
@@ -114,18 +117,33 @@ export const uploadResource = async (data: UploadResourceRequest): Promise<Uploa
     if (data.year) formData.append('year', data.year.toString());
     if (data.tags) formData.append('tags', data.tags);
 
+    console.log('Uploading resource with data:', {
+      title: data.title,
+      visibility: data.visibility,
+      subject: data.subject,
+      semester: data.semester,
+      year: data.year,
+      tags: data.tags,
+      fileName: data.file.name
+    });
+
     const response = await apiClient.post<UploadResponse>('/', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
 
+    console.log('Upload response:', response.data);
     return response.data;
   } catch (error: any) {
+    console.error('Upload error:', error);
     if (error.response?.data) {
       return error.response.data;
     }
-    throw error;
+    return {
+      success: false,
+      error: error.message || 'Upload failed'
+    };
   }
 };
 
@@ -158,13 +176,20 @@ export const getResourceById = async (id: number): Promise<SingleResourceRespons
 // Get user's uploaded resources
 export const getMyResources = async (filters?: ResourceFilters): Promise<ResourcesResponse> => {
   try {
+    console.log('Calling GET /api/resources/my with filters:', filters);
     const response = await apiClient.get<ResourcesResponse>('/my', { params: filters });
+    console.log('GET /my response:', response.data);
     return response.data;
   } catch (error: any) {
+    console.error('GET /my error:', error);
     if (error.response?.data) {
       return error.response.data;
     }
-    throw error;
+    return {
+      success: false,
+      error: error.message || 'Failed to fetch resources',
+      data: []
+    };
   }
 };
 
