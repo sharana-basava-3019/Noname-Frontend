@@ -68,6 +68,27 @@ export interface UpdateProfileApiResponse {
   error?: string;
 }
 
+export interface PasswordResetRequest {
+  email: string;
+}
+
+export interface PasswordResetResponse {
+  success: boolean;
+  message?: string;
+  error?: string;
+}
+
+export interface ResetPasswordRequest {
+  token: string;
+  newPassword: string;
+}
+
+export interface VerifyTokenResponse {
+  success: boolean;
+  message?: string;
+  error?: string;
+}
+
 // Create axios instance with default config
 const apiClient = axios.create({
   baseURL: API_BASE,
@@ -157,6 +178,45 @@ export const updateUserProfile = async (data: UpdateProfileRequest): Promise<Upd
       localStorage.setItem('auth_user', JSON.stringify(response.data.data));
     }
     
+    return response.data;
+  } catch (error: any) {
+    if (error.response?.data) {
+      return error.response.data;
+    }
+    throw error;
+  }
+};
+
+// Request password reset
+export const requestPasswordReset = async (data: PasswordResetRequest): Promise<PasswordResetResponse> => {
+  try {
+    const response = await apiClient.post<PasswordResetResponse>('/forgot-password', data);
+    return response.data;
+  } catch (error: any) {
+    if (error.response?.data) {
+      return error.response.data;
+    }
+    throw error;
+  }
+};
+
+// Verify reset token
+export const verifyResetToken = async (token: string): Promise<VerifyTokenResponse> => {
+  try {
+    const response = await apiClient.get<VerifyTokenResponse>(`/verify-reset-token?token=${token}`);
+    return response.data;
+  } catch (error: any) {
+    if (error.response?.data) {
+      return error.response.data;
+    }
+    throw error;
+  }
+};
+
+// Reset password with token
+export const resetPassword = async (data: ResetPasswordRequest): Promise<PasswordResetResponse> => {
+  try {
+    const response = await apiClient.post<PasswordResetResponse>('/reset-password', data);
     return response.data;
   } catch (error: any) {
     if (error.response?.data) {
