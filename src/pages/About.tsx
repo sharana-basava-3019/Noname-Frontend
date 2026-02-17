@@ -189,32 +189,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Join the CampusShare Community</h2>
-          <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-            Whether you're looking for study materials or want to share your knowledge, CampusShare has a place for you.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Button
-              onClick={() => navigate("/browse")}
-              size="lg"
-              className="bg-indigo-600 hover:bg-indigo-700"
-            >
-              Browse Resources
-            </Button>
-            <Button
-              onClick={() => navigate("/upload")}
-              size="lg"
-              variant="outline"
-            >
-              Upload Resource
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Footer Info */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white">
         <div className="mx-auto max-w-4xl">
